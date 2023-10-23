@@ -87,8 +87,8 @@ li {
   margin: 1rem 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3 6rem); /*6rem 6rem 6rrem*/
-  grid-template-rows: repeat(3 6rem); /*6rem 6rem 6rrem*/
+  grid-template-columns: repeat(3, 6rem); /*6rem 6rem 6rrem*/
+  grid-template-rows: repeat(3, 6rem); /*6rem 6rem 6rrem*/
   justify-content: center;
   gap: 0.5rem;
 }
