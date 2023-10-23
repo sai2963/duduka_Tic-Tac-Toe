@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+}
+#entire {
+  font-family: sans-serif;
+  text-align: center;
+  display: block;
+}
+#main-header {
+  background-color: rgb(13, 157, 205);
+  padding: 3rem;
+}
+main {
+  background: linear-gradient(120deg, rgb(15, 184, 231), rgb(90, 205, 243));
+}
+#main-header h1 {
+  margin: 1rem;
+}
+#player {
+  padding: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10rem;
+}
+#player2 {
+  padding: 1rem;
+  border: 1.5px solid rgb(15, 63, 167);
+  border-radius: 6px;
+  box-shadow: 2px 2px 4px;
+  width: 20%;
+
+  background-color: rgb(179, 229, 244);
+}
+
+#player1 {
+  padding: 1rem;
+  border: 1.5px solid rgb(15, 63, 167);
+  border-radius: 6px;
+  box-shadow: 2px 2px 4px;
+  width: 20%;
+
+  background-color: rgb(179, 229, 244);
+}
+#player h2,
+h3,
+p,
+button {
+  margin: 0.6rem;
+}
+#player button {
+  padding: 1rem 2rem;
+  background-color: rgb(15, 179, 229);
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+#player button:hover {
+  width: 100px;
+  height: 50px;
+  box-shadow: 2px 2px 4px;
+}
+li {
+  list-style: none;
+}
+.newgame {
+  padding: 1rem 3rem;
+  background-color: rgb(208, 55, 55);
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: 2px 2px 4px;
+  margin-bottom: 30px;
+}
+.newgame:hover {
+  width: 200px;
+  height: 50px;
+  box-shadow: 2px 2px 4px;
+}
+#activity p {
+  font-size: 30px;
+  color: rgb(21, 47, 220);
+  margin: 10px;
+  padding: 20px;
+}
+#game-board{
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3 6rem); /*6rem 6rem 6rrem*/
+  grid-template-rows: repeat(3 6rem); /*6rem 6rem 6rrem*/
+  justify-content: center;
+  gap: 0.5rem;
+}
+#game-board li {
+  background-color: rgb(179, 229, 244);
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+#game-board li:hover {
+  background-color: rgb(15, 179, 229);
+}

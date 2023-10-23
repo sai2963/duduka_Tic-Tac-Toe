@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="overlays.css" />
+  </head>
+  <body>
+    <div id="entire">
+      <div id="backdrop"></div>
+      <header id="main-header">
+        <h1>Play Tic,Tac,Toe</h1>
+        <p>Built With HTML CSS Javascript</p>
+      </header>
+      <hr />
+      <main>
+        <aside class="modal">
+          <h2>Choose Your Name</h2>
+          <form action="">
+            <div>
+              <label for="playername">Player Name</label>
+              <input type="text" id="playername" placeholder="PlayerName" />
+            </div>
+            <div id="buttons">
+              <button type="button" id="btn1" class="btn1">Cancel</button>
+              <button type="submit" id="btn2" class="btn1">Confirm</button>
+            </div>
+          </form>
+        </aside>
+        <section>
+          <ol id="player">
+            <li id="player1">
+              <article>
+                <h2>Player 1</h2>
+                <h3>Player Name</h3>
+                <p>X</p>
+                <button class="btn3" id="btn3">Edit</button>
+              </article>
+            </li>
+            <li id="player2">
+              <article>
+                <h2>Player 2</h2>
+                <h3>Player Name</h3>
+                <p>O</p>
+                <button class="bt4" id="btn4">Edit</button>
+              </article>
+            </li>
+          </ol>
+          <button class="newgame" id="newgame">Start New Game</button>
+        </section>
+
+        <div id="activity">
+          <p>It's your turn Player Name</p>
+        </div>
+        <ol id="game-board">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+        </ol>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
