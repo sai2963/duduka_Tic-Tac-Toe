@@ -96,7 +96,7 @@ li {
   background-color: rgb(179, 229, 244);
   border-radius: 2px;
   cursor: pointer;
-  display: flex;
+  
   justify-content: center;
   align-items: center;
   font-size: 2.5rem;
