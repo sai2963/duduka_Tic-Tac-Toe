@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="overlays.css" />
   </head>
   <body>
-    <div id="entire">
-      <div id="backdrop"></div>
+    <div id="backdrop"></div>
+   
+      
       <header id="main-header">
         <h1>Play Tic,Tac,Toe</h1>
         <p>Built With HTML CSS Javascript</p>
       </header>
       <hr />
       <main>
-        <aside class="modal">
+        <aside id="modal" class="modal">
           <h2>Choose Your Name</h2>
           <form action="">
             <div>
@@ -34,17 +35,17 @@
             <li id="player1">
               <article>
                 <h2>Player 1</h2>
-                <h3>Player Name</h3>
+                <h3 id="name1">Player Name</h3>
                 <p>X</p>
-                <button class="btn3" id="btn3">Edit</button>
+                <button class="btn3" id="btn3">Edit1</button>
               </article>
             </li>
             <li id="player2">
               <article>
                 <h2>Player 2</h2>
-                <h3>Player Name</h3>
+                <h3 id="name2">Player Name</h3>
                 <p>O</p>
-                <button class="bt4" id="btn4">Edit</button>
+                <button class="bt4" id="btn4">Edit2</button>
               </article>
             </li>
           </ol>
@@ -52,21 +53,22 @@
         </section>
 
         <div id="activity">
-          <p>It's your turn Player Name</p>
+          <p>It's Your Turn <span id="playernameg">Player Name</span></p>
         </div>
+        <div id="result"></div>
         <ol id="game-board">
-          <li>X</li>
+          <li class="disabled">X</li>
           <li></li>
           <li></li>
           <li></li>
-          <li>X</li>
+          <li class="disabled">X</li>
           <li></li>
           <li></li>
           <li></li>
-          <li>X</li>
+          <li class="disabled">X</li>
         </ol>
       </main>
-    </div>
+    
 
     <script src="app.js"></script>
   </body>
