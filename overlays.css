@@ -3,14 +3,16 @@
 }
 .modal{
    
-    
+    position: fixed;
+   
+    left: 19rem;
     padding: 1.5rem 3rem;
     border-radius: 6px;
     background-color: white;
     border: 1px solid blue;
    
     width: 10%;
-    margin: 80px auto;
+    margin: 10px auto;
     text-align: center;
     display: none;
    
