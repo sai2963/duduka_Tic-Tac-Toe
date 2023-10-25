@@ -100,6 +100,7 @@ li {
   border: 1px solid rgb(148, 65, 226);
   
   width: fit-content;
+  box-shadow: 2px 2px 8px;
   
 }
 #game-board li {
@@ -119,4 +120,9 @@ li {
   background-color: rgb(15, 179, 229);
   cursor: default;
   color:white;
+}
+#result{
+  font-size: 20px;
+  font-family: sans-serif;
+  color: rgb(15, 179, 229);
 }

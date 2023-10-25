@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let backdropEl = document.getElementById("backdrop");
     let playernameEl = document.getElementById("playername");
     let gameboardEl = document.getElementById("game-board");
-    let gameElements = document.querySelectorAll('#game-board li');
+    let gameElements = document.querySelectorAll("#game-board li");
   
     let activePlayer = ""; // Store the active player for the form submission
     let p1 = ""; // Declare p1 outside the event listener functions
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentPlayerIndex = 0;
   
     const players = [
-      { name: p1, symbol: 'X' },
-      { name: p2, symbol: 'O' }
+      { name: "", symbol: "X" },
+      { name: "", symbol: "O" },
     ];
   
     function openModal() {
@@ -52,10 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
       let playername = playernameEl.value;
   
       if (activePlayer === "player1") {
-        p1 = playername;
+        p1 = playername.toUpperCase();
+        players[0].name = p1; // Update the player name in the players array
         name1El.textContent = playername;
       } else if (activePlayer === "player2") {
-        p2 = playername;
+        p2 = playername.toUpperCase();
+        players[1].name = p2; // Update the player name in the players array
         name2El.textContent = playername;
       }
   
@@ -72,24 +74,83 @@ document.addEventListener("DOMContentLoaded", function () {
       gameboardEl.style.display = "grid"; // Display the game board
   
       // Scroll to the game board
-      gameboardEl.scrollIntoView({ behavior: 'smooth' });
+      gameboardEl.scrollIntoView({ behavior: "smooth" });
       playernamegEl.innerHTML = players[currentPlayerIndex].name; // Update player name in the game board
   
-      gameElements = document.querySelectorAll('#game-board li'); // Update the gameElements variable
+      gameElements = document.querySelectorAll("#game-board li"); // Update the gameElements variable
   
       for (let gameElement of gameElements) {
-        gameElement.addEventListener('click', selectGameField);
+        gameElement.addEventListener("click", selectGameField);
       }
     }
   
     newgameEl.addEventListener("click", start);
   
+    function checkWinCondition() {
+      const winCombos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+  
+      for (let combo of winCombos) {
+        if (
+          gameElements[combo[0]].textContent === players[currentPlayerIndex].symbol &&
+          gameElements[combo[1]].textContent === players[currentPlayerIndex].symbol &&
+          gameElements[combo[2]].textContent === players[currentPlayerIndex].symbol
+        ) {
+          return true;
+        }
+      }
+      return false;
+    }
+  
+    function checkDrawCondition() {
+      for (let gameElement of gameElements) {
+        if (gameElement.textContent === "") {
+          return false;
+        }
+      }
+      return true;
+    }
+  
+    function resetGame() {
+      resultEl.textContent = ""; // Clear the result text
+      for (let gameElement of gameElements) {
+        gameElement.textContent = ""; // Clear the game board
+        gameElement.addEventListener("click", selectGameField);
+        gameElement.classList.remove("disabled");
+      }
+    }
+  
+    newgameEl.addEventListener("click", resetGame);
+  
     function selectGameField(event) {
       if (!event.target.textContent) {
         event.target.textContent = players[currentPlayerIndex].symbol;
+        if (checkWinCondition()) {
+          resultEl.textContent = `${players[currentPlayerIndex].name} won the match`;
+          gameElements.forEach((element) => {
+            element.removeEventListener("click", selectGameField);
+            element.classList.add("disabled");
+          });
+          return;
+        }
+  
+        if (checkDrawCondition()) {
+          resultEl.textContent = "Match Drawn";
+          return;
+        }
+  
         currentPlayerIndex = 1 - currentPlayerIndex; // Switch player
         playernamegEl.innerHTML = players[currentPlayerIndex].name; // Update current player name
       }
+      event.target.classList.add("disabled");
     }
   });
   
