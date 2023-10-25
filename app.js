@@ -86,9 +86,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     newgameEl.addEventListener("click", start);
 
+    function checkWinCondition() {
+        const winCombos = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        for (let combo of winCombos) {
+            if (
+                gameElements[combo[0]].textContent === players[currentPlayerIndex].symbol &&
+                gameElements[combo[1]].textContent === players[currentPlayerIndex].symbol &&
+                gameElements[combo[2]].textContent === players[currentPlayerIndex].symbol
+            ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     function selectGameField(event) {
         if (!event.target.textContent) {
             event.target.textContent = players[currentPlayerIndex].symbol;
+            if (checkWinCondition()) {
+                resultEl.textContent = `${players[currentPlayerIndex].name} wins!`;
+                gameElements.forEach((element) => {
+                    element.removeEventListener('click', selectGameField);
+                });
+                return;
+            }
             currentPlayerIndex = 1 - currentPlayerIndex; // Switch player
             playernamegEl.innerHTML = players[currentPlayerIndex].name; // Update current player name
         }
