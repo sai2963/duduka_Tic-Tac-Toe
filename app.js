@@ -87,8 +87,40 @@ document.addEventListener("DOMContentLoaded", function () {
     function selectGameField(event) {
         if (!event.target.textContent) {
             event.target.textContent = players[currentPlayerIndex].symbol;
+            if (checkWin(players[currentPlayerIndex].symbol)) {
+                resultEl.textContent = `${players[currentPlayerIndex].name} wins!`;
+                // Reset the game or perform any other necessary action
+                return;
+            }
             currentPlayerIndex = 1 - currentPlayerIndex; // Switch player
             playernamegEl.innerHTML = players[currentPlayerIndex].name; // Update current player name
         }
+    }
+
+    function checkWin(symbol) {
+        // Check rows, columns, and diagonals for a win
+        const rows = [[0, 1, 2], [3, 4, 5], [6, 7, 8]];
+        const columns = [[0, 3, 6], [1, 4, 7], [2, 5, 8]];
+        const diagonals = [[0, 4, 8], [2, 4, 6]];
+
+        for (let row of rows) {
+            if (row.every(index => gameElements[index].textContent === symbol)) {
+                return true;
+            }
+        }
+
+        for (let column of columns) {
+            if (column.every(index => gameElements[index].textContent === symbol)) {
+                return true;
+            }
+        }
+
+        for (let diagonal of diagonals) {
+            if (diagonal.every(index => gameElements[index].textContent === symbol)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 });
