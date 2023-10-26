@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
   
         if (checkDrawCondition()) {
-          resultEl.textContent = "Match Drawn";
+          resultEl.textContent = "Match  Drawn Try Again Guys";
           return;
         }
   
