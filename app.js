@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!event.target.textContent) {
         event.target.textContent = players[currentPlayerIndex].symbol;
         if (checkWinCondition()) {
-          resultEl.textContent = ` Appie ${players[currentPlayerIndex].name} won the match`;
+          resultEl.textContent = ` Appie ${players[currentPlayerIndex].name} won the match now!`;
           gameElements.forEach((element) => {
             element.removeEventListener("click", selectGameField);
             element.classList.add("disabled");
