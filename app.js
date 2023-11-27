@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btn2").addEventListener("click", function (e) {
       e.preventDefault(); // Prevent the default form submission
       if (playernameEl.value.trim() === "") {
-        alert("Enter Your Name");
+        alert("Enter ur Name");
         return; // Return early if the input is empty
       }
       let playername = playernameEl.value;
